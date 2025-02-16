@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白頭翁整合照護</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-heartbeat me-2"></i>白頭翁整合照護(智慧照護記錄系統)
+            </a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-microphone me-2"></i>語音記錄
+                        </h5>
+                        <div class="handover-info mb-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="handoverFrom" class="form-label">
+                                            <i class="fas fa-user-nurse me-2"></i>交接人
+                                        </label>
+                                        <input type="text" class="form-control" id="handoverFrom" 
+                                               placeholder="請輸入交接護理人員姓名">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="handoverTo" class="form-label">
+                                            <i class="fas fa-user-nurse me-2"></i>接班人
+                                        </label>
+                                        <input type="text" class="form-control" id="handoverTo" 
+                                               placeholder="請輸入接班護理人員姓名">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recording-guide mb-4">
+                            <h6 class="guide-title">錄音提示：</h6>
+                            <ul class="guide-list">
+                                <li><i class="fas fa-check-circle text-success"></i> 請清楚說明病患的基本狀況</li>
+                                <li><i class="fas fa-check-circle text-success"></i> 提供生命徵象數據（若有）</li>
+                                <li><i class="fas fa-check-circle text-success"></i> 描述已執行的照護項目</li>
+                                <li><i class="fas fa-check-circle text-success"></i> 說明特殊觀察重點</li>
+                                <li><i class="fas fa-check-circle text-success"></i> 提供後續照護建議</li>
+                            </ul>
+                        </div>
+                        <div class="text-center my-4">
+                            <button id="recordButton" class="btn btn-lg btn-primary rounded-circle">
+                                <i class="fas fa-microphone fa-2x"></i>
+                            </button>
+                            <div id="recordingStatus" class="mt-2">準備就緒</div>
+                            <div id="timer" class="mt-2 display-4 d-none">00:00</div>
+                        </div>
+                        <div class="progress mb-3 d-none" id="progressBar">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                 role="progressbar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-file-medical me-2"></i>處理狀態
+                        </h5>
+                        <div id="processingStatus" class="alert alert-info d-none">
+                            <i class="fas fa-spinner fa-spin me-2"></i>
+                            <span>正在處理...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="fas fa-notes-medical me-2"></i>照護報告
+                        </h5>
+                        <div class="report-actions mb-3">
+                            <button id="editReportBtn" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-edit me-1"></i>編輯報告
+                            </button>
+                            <button id="saveReportBtn" class="btn btn-success btn-sm d-none">
+                                <i class="fas fa-save me-1"></i>儲存修改
+                            </button>
+                        </div>
+                        <div id="reportResult" class="border rounded p-3 bg-light" contenteditable="false">
+                            尚未有報告內容
+                        </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button id="sendEmailBtn" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>發送報告至信箱
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 

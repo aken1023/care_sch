@@ -1,0 +1,12 @@
+# 環境變數 
+.env 
+.env.* 
+!.env.example 
+# Python 
+__pycache__/ 
+*.pyc 
+# 其他檔案 
+logs/ 
+uploads/ 
+records/ 
+ssl/ 

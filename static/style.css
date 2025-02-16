@@ -1,0 +1,201 @@
+/* 全局樣式 */
+:root {
+    --primary-color: #f8b195;
+    --secondary-color: #f67280;
+    --accent-color: #c06c84;
+    --background-color: #fff5f5;
+    --text-color: #4a4a4a;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+    line-height: 1.6;
+}
+
+/* 導航欄樣式 */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* 卡片樣式 */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* 錄音按鈕樣式 */
+#recordButton {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#recordButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+#recordButton.recording {
+    animation: pulse 1.5s infinite;
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+}
+
+/* 錄音提示樣式 */
+.guide-title {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.guide-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.guide-list li {
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    background-color: rgba(248, 177, 149, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.guide-list li:hover {
+    background-color: rgba(248, 177, 149, 0.2);
+    transform: translateX(5px);
+}
+
+/* 表單元素樣式 */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #eee;
+    padding: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(248, 177, 149, 0.25);
+}
+
+/* 按鈕樣式 */
+.btn {
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    transform: translateY(-2px);
+}
+
+/* 報告區域樣式 */
+#reportResult {
+    border-radius: 15px;
+    background-color: white;
+    padding: 1.5rem;
+}
+
+.report-timestamp {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    #recordButton {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* 動畫效果 */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 107, 107, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+    }
+}
+
+/* 時間顯示樣式 */
+#currentTime {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+/* 進度條樣式 */
+.progress {
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgba(248, 177, 149, 0.2);
+}
+
+.progress-bar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* 處理狀態樣式 */
+#processingStatus {
+    border: none;
+    background-color: rgba(248, 177, 149, 0.1);
+    border-radius: 10px;
+}
+
+/* 計時器樣式 */
+#timer {
+    color: var(--accent-color);
+    font-weight: bold;
+} 

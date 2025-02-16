@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>錯誤日誌</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .log-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .log-entry {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .log-entry.error {
+            border-left: 4px solid #dc3545;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .level {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            margin: 0 10px;
+            font-size: 0.8em;
+        }
+        .level.ERROR {
+            background-color: #dc3545;
+            color: white;
+        }
+        .message {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        .traceback {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+        .refresh-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .refresh-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="log-container">
+        <h1>系統錯誤日誌</h1>
+        {% for log in logs|reverse %}
+        <div class="log-entry {% if log.level == 'ERROR' %}error{% endif %}">
+            <span class="timestamp">{{ log.timestamp }}</span>
+            <span class="level {{ log.level }}">{{ log.level }}</span>
+            <div class="message">{{ log.message }}</div>
+            {% if log.traceback %}
+            <div class="traceback">{{ log.traceback }}</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    <button class="refresh-button" onclick="location.reload()">重新整理</button>
+    <script>
+        // 每30秒自動重新整理
+        setTimeout(function() {
+            location.reload();
+        }, 30000);
+    </script>
+</body>
+</html> 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>照護記錄系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+</head>
+<body>
+    <div id="reportContainer" class="report-container">
+        <div class="report-header">
+            <h1>北醫白頭翁整合照護 日夜交班記錄單</h1>
+            <div class="timestamp">2025/02/15 20:41:56</div>
+        </div>
+        
+        <div class="basic-info">
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>記錄時間</label>
+                    <span>114年02月15日 20:41</span>
+                </div>
+                <div class="info-item">
+                    <label>床號</label>
+                    <span>________</span>
+                </div>
+                <div class="info-item">
+                    <label>姓名</label>
+                    <span>________</span>
+                </div>
+                <div class="info-item">
+                    <label>護理人員</label>
+                    <span>未填寫</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-sections">
+            <div class="section-grid">
+                <!-- 生理評估 -->
+                <div class="section">
+                    <h2>一、生理評估</h2>
+                    <div class="subsection">
+                        <h3>意識狀態</h3>
+                        <div class="content">無特殊記錄</div>
+                    </div>
+                    <div class="subsection">
+                        <h3>生命徵象</h3>
+         
+                    </div>
+                </div>
+
+                <!-- 照護評估 -->
+                <div class="section">
+                    <h2>二、照護評估</h2>
+                    <!-- 其他子區塊 -->
+                </div>
+
+                <!-- 治療紀錄 -->
+                <div class="section">
+                    <h2>三、治療紀錄</h2>
+                    <!-- 其他子區塊 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-grid">
+                <div class="signature-item">
+                    <label>白班護理師</label>
+                    <div class="signature-line">_________________</div>
+                </div>
+                <div class="signature-item">
+                    <label>夜班護理師</label>
+                    <div class="signature-line">_________________</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-section">
+            <h3>備註</h3>
+            <ul>
+                <li>本紀錄由語音轉換產生，請核對內容正確性</li>
+                <li>如有任何異常狀況，請立即通報護理站</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html> 
